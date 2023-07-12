@@ -37,7 +37,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
 
 const li = ({ preview, original, description }) => {
     return `<li class="gallery__item">
@@ -57,5 +56,23 @@ gallery.addEventListener('click', onImageClick);
 
 function onImageClick(evt) {
     evt.preventDefault()
-    console.log(evt.target);
+    
+    if (evt.target.nodeName !== "IMG") {
+        return
+    }
+    const urlForBigPicture = evt.target.getAttribute("data-source")
+    const instance = basicLightbox.create(`
+        <img src="${urlForBigPicture}">
+    `)
+
+    instance.show()
+    
+    document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+    instance.close()
+    }
+    })
 }
+
+
+
