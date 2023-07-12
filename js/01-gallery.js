@@ -34,6 +34,11 @@
 
 // =================================================================================
 
+import { galleryItems } from './gallery-items.js';
+// Change code below this line
+
+console.log(galleryItems);
+
 const li = ({ preview, original, description }) => {
     return `<li class="gallery__item">
     <a class="gallery__link" href=${original}>
@@ -47,7 +52,10 @@ const liElements = galleryItems.map(li).join('')
 const gallery = document.querySelector('.gallery')
 gallery.insertAdjacentHTML('beforeend', liElements)
 
-import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
-console.log(galleryItems);
+gallery.addEventListener('click', onImageClick);
+
+function onImageClick(evt) {
+    evt.preventDefault()
+    console.log(evt.target);
+}
