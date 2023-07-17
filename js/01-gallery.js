@@ -68,9 +68,9 @@ function onImageClick(evt) {
     instance.show()
     
     document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-    instance.close()
-    }
+        if (event.key === 'Escape') {
+            instance.close()
+        }
     })
 }
 
