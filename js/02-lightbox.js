@@ -38,14 +38,12 @@ const liElements = galleryItems.map(li).join('')
 
 const gallery = document.querySelector('.gallery')
 gallery.insertAdjacentHTML('beforeend', liElements)
-gallery.addEventListener('click', onImageClick);
+
 const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250
 });
 
 
-function onImageClick(evt) {
-    evt.preventDefault()
-}
+
 
